@@ -1,0 +1,1 @@
+I didn't added skybox because it exceeds the file upload limit of GitHub.

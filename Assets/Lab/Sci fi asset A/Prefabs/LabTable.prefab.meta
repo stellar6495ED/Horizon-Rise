@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e20b8b783289f644684f9e94fddbd56f
+timeCreated: 1518080588
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 110070
+  packageName: Free LowPoly SciFi Pack
+  packageVersion: 1.0
+  assetPath: Assets/Free LowPoly SciFi Pack/Prefabs/LabTable.prefab
+  uploadId: 228927

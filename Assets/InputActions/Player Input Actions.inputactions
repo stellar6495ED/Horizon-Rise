@@ -1,0 +1,195 @@
+{
+    "version": 1,
+    "name": "Player Input Actions",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "9303af13-91dc-483e-9508-3247e32e622a",
+            "actions": [
+                {
+                    "name": "Movement",
+                    "type": "Value",
+                    "id": "348b0a3e-02df-49a6-b4c9-bb92569b1d99",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Interactions",
+                    "type": "Button",
+                    "id": "d77a2c19-e62e-4a89-aa46-49a2bc4799a6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "QuestBox",
+                    "type": "Button",
+                    "id": "32eca2d8-30dc-46e4-bf8d-8bf083a9f5f6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HelpMenu",
+                    "type": "Button",
+                    "id": "4dc5545e-32de-4998-bb78-6e45f03e2706",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "2D Vector",
+                    "id": "57ad47d1-d6a2-4fd2-a8f5-d34be348ea7a",
+                    "path": "2DVector",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "NormalizeVector2",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "4fee213c-a9b7-4cd1-8dc2-1aa87608dff0",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "c4867b2b-2477-4cc7-88c4-044e77fee0f7",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "8d139e3a-73ac-43af-b8b2-565e92746cbc",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "778f15ea-af83-4ebc-a569-eb9431799070",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "4a5ad518-d356-492f-a788-c2e647107876",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interactions",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60df496e-2a20-4992-8ec5-076c95be8679",
+                    "path": "<Keyboard>/j",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "QuestBox",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bb5b8119-70f6-4125-a8b4-918e8f091a6b",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HelpMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Camera",
+            "id": "34c48070-b26a-440d-98f4-20bdeb33a95d",
+            "actions": [
+                {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "fc01354f-a837-48fe-a79c-451f532600a0",
+                    "expectedControlType": "Delta",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7e042600-e5a3-4f4b-b038-5662efb4bdf8",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "GameState",
+            "id": "40e75058-c747-4f3a-82ba-64297dced317",
+            "actions": [
+                {
+                    "name": "UseCursor",
+                    "type": "Button",
+                    "id": "ff986c08-0d53-43e2-811b-ac9caa468118",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c86171de-7f25-43ff-b941-0348972e3561",
+                    "path": "<Keyboard>/leftAlt",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseCursor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

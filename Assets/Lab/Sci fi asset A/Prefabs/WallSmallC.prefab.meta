@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ba75f6548b81ad440be3522e8695d23c
+timeCreated: 1518080635
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 110070
+  packageName: Free LowPoly SciFi Pack
+  packageVersion: 1.0
+  assetPath: Assets/Free LowPoly SciFi Pack/Prefabs/WallSmallC.prefab
+  uploadId: 228927
