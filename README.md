@@ -29,9 +29,9 @@ Enjoy the game 🎮
 
 **🛠️ Built With**
 
-1.Engine: Unity 6000.3.1f1
-2.Platform: Windows
-3.Focus Areas: Optimization, performance scaling, scene management
+1. Engine: Unity 6000.3.1f1
+2. Platform: Windows
+3. Focus Areas: Optimization, performance scaling, scene management
 
 **📌 Purpose of This Project**
 
