@@ -30,14 +30,19 @@ Enjoy the game 🎮
 **🛠️ Built With**
 
 Engine: Unity 6000.3.1f1
+
 Platform: Windows
+
 Focus Areas: Optimization, performance scaling, scene management
 
 **📌 Purpose of This Project**
 
 College academic submission
+
 Personal portfolio project
+
 Demonstration of real-world Unity optimization techniques
+
 Focus on stable frame rates and low latency
 
 Suitable for a wide range of hardware configurations
