@@ -6,6 +6,8 @@ public class HelpSystem : MonoBehaviour
     private AudioSource audioSource;
     float timer;
 
+    public StoryManager storyManager;
+
     [Header("Help Menu Settings")]
     public GameObject helpMenu;
     public TextMeshProUGUI helpText;
@@ -34,6 +36,7 @@ public class HelpSystem : MonoBehaviour
         audioSource.PlayOneShot(SlideSFX);
         helpMenuAnimator.Play(openAnimationName);
         GameManager.instance.ActivateCursor(true);
+        storyManager.DIsableUIElements();
         helpMenu.SetActive(true);
         ShowBinTable();
     }
@@ -43,6 +46,7 @@ public class HelpSystem : MonoBehaviour
         audioSource.PlayOneShot(SlideSFX);
         helpMenuAnimator.Play(closeAnimationName);
         GameManager.instance.ActivateCursor(false);
+        storyManager.EnableUIElements();
         Invoke(nameof(CloseMenu), 1f);
     }
 

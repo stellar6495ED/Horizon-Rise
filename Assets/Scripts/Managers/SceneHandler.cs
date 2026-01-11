@@ -4,9 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneHandler : MonoBehaviour
 {
-    float minLoadTime = 1.8f;
+    float minLoadTime = 2f;
     float timer;
     WaitForSeconds globalDelay = new WaitForSeconds(2f);
+
+    public BootupGraphicSystem bootupGraphicSystem;
 
     [Header("Panels")]
     public GameObject firstScene;
@@ -18,7 +20,10 @@ public class SceneHandler : MonoBehaviour
         firstScene.SetActive(false);
         secondScene.SetActive(false);
         thirdScene.SetActive(false);
+    }
 
+    private void Start()
+    {
         StartCoroutine(LoadGameSystem());
     }
 
@@ -35,7 +40,9 @@ public class SceneHandler : MonoBehaviour
 
         secondScene.SetActive(false);
         thirdScene.SetActive(true);
-        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync(bootupGraphicSystem.sceneToLoad);
         operation.allowSceneActivation = false;
 
         while (!operation.isDone)

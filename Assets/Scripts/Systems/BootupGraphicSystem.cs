@@ -1,12 +1,131 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class BootupGraphicSystem : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    int virtualRamSize;
+    string gpuName;
+    Camera mainCamera;
+    UniversalAdditionalCameraData mainCameraData;
+
+    [HideInInspector] public string sceneToLoad = "Lab_Lowest";
+
+    private void Awake()
     {
-        QualitySettings.SetQualityLevel(0);
-        QualitySettings.anisotropicFiltering = AnisotropicFiltering.Disable;
+        DontDestroyOnLoad(this.gameObject);
+
+        virtualRamSize = SystemInfo.graphicsMemorySize;
+        gpuName = SystemInfo.graphicsDeviceName;
+        gpuName = gpuName.ToLower();
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        ApplySettings();
+    }
+
+    private void ApplySettings()
+    {
+        mainCamera = Camera.main;
+        if (mainCamera != null)
+        {
+            mainCameraData = mainCamera.GetUniversalAdditionalCameraData();
+            GraphicsSetup(gpuName);
+        }
+    }
+
+    void GraphicsSetup(string gpuName)
+    {
+        if(gpuName.Contains("intel")) //Lowest
+        {
+            SetLowestGraphics();
+            sceneToLoad = "Lab_Lowest";
+        }
+        else if(gpuName.Contains("nvidia"))
+        {
+            mainCameraData.antialiasing = AntialiasingMode.None;
+            mainCameraData.renderPostProcessing = true;
+
+            if(virtualRamSize > 4096) //Highest
+            {
+                SetHighestGraphics();
+                sceneToLoad = "Lab_Highest";
+            }
+            else if(virtualRamSize > 2048) //High
+            {
+                SetHighGraphics();
+                sceneToLoad = "Lab_High";
+            }
+            else if(virtualRamSize > 1024) //Medium
+            {
+                SetMediumGraphics();
+                sceneToLoad = "Lab_Mid";
+            }
+            else //Low
+            {
+                SetLowGraphics();
+                sceneToLoad = "Lab_Low";
+            }
+        }
+        else //Fallback and AMD graphics
+        {
+            SetLowGraphics();
+            sceneToLoad = "Lab_Low";
+        }
+    }
+
+    void SetHighestGraphics()
+    {
+        Application.targetFrameRate = 60;
+        QualitySettings.SetQualityLevel(4);
+        QualitySettings.antiAliasing = 4;
+        QualitySettings.anisotropicFiltering = AnisotropicFiltering.ForceEnable;
+    }
+
+    void SetHighGraphics()
+    {
+        Application.targetFrameRate = 45;
+        QualitySettings.SetQualityLevel(3);
+        QualitySettings.antiAliasing = 2;
+        QualitySettings.anisotropicFiltering = AnisotropicFiltering.Enable;
+    }
+
+    void SetMediumGraphics()
+    {
+        Application.targetFrameRate = 30;
+        QualitySettings.SetQualityLevel(2);
         QualitySettings.antiAliasing = 0;
+        mainCameraData.antialiasing = AntialiasingMode.SubpixelMorphologicalAntiAliasing;
+        mainCameraData.antialiasingQuality = AntialiasingQuality.Medium;
+        QualitySettings.anisotropicFiltering = AnisotropicFiltering.Disable;
+    }
+
+    void SetLowGraphics()
+    {
+        Application.targetFrameRate = 24;
+        QualitySettings.SetQualityLevel(1);
+        QualitySettings.antiAliasing = 0;
+        mainCameraData.antialiasing = AntialiasingMode.SubpixelMorphologicalAntiAliasing;
+        mainCameraData.antialiasingQuality = AntialiasingQuality.Low;
+        QualitySettings.anisotropicFiltering = AnisotropicFiltering.Disable;
+    }
+
+    void SetLowestGraphics()
+    {
+        Application.targetFrameRate = 24;
+        QualitySettings.SetQualityLevel(0);
+        mainCameraData.antialiasing = AntialiasingMode.None;
+        mainCameraData.renderPostProcessing = false;
+        QualitySettings.anisotropicFiltering = AnisotropicFiltering.Disable;
     }
 }

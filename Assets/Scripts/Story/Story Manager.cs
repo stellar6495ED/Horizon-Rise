@@ -27,7 +27,7 @@ public class StoryManager : MonoBehaviour
         OpenInfo();
     }
 
-    void EnableUIElements()
+    public void EnableUIElements()
     {
         for(int i = 0; i < otherUIElements.Length; i++)
         {
@@ -35,7 +35,7 @@ public class StoryManager : MonoBehaviour
         }
     }
 
-    void DIsableUIElements()
+    public void DIsableUIElements()
     {
         for (int i = 0;i < otherUIElements.Length;i++)
         {

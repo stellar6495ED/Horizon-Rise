@@ -10,6 +10,8 @@ public class MessageSystem : MonoBehaviour
     private TextMeshProUGUI messageText;
     private PlayerInputActions messageInteraction;
 
+    float timer;
+
     [Header("Animation Settings")]
     public string forwardAnimationName = "FrothAnimation";
     public string backwardAnimationName = "BackAnimation";
@@ -32,6 +34,16 @@ public class MessageSystem : MonoBehaviour
         messageText.text = string.Empty;
         messageText.text = message;
         StartCoroutine(HandleMessages());
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        if(timer > 4f && message != string.Empty)
+        {
+            messageAnimator.Play(backwardAnimationName);
+            timer = 0f;
+        }
     }
 
     private void OnEnable()

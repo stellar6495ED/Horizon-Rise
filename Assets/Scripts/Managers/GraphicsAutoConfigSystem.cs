@@ -1,7 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
-using UnityEngine.Rendering.Universal;
 
 public class GraphicsAutoConfigSystem : MonoBehaviour
 {
