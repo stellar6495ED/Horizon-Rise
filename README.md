@@ -4,13 +4,13 @@ Built using Unity 6000.3.1f1, the project demonstrates practical game developmen
 
 **🖥️ How to Play**
 
-**Step 1:**
+**Step 1:**\n
 Download the project build
-**Step 2:**
+**Step 2:**\n
 Unzip the downloaded file
-**Step 3:**
+**Step 3:**\n
 Run Horizon Rise.exe
-
+\n
 Enjoy the game 🎮
 
 **✨ Key Features**
